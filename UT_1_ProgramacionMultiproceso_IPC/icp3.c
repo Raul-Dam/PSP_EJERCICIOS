@@ -21,11 +21,8 @@ int main() {
         int num2 = rand() % 50 + 1;
 
         // Escribe los dos números en el pipe
-        sprintf(buffer, "%d", num1);
-        write(fd[1], buffer, strlen(buffer) + 1);
-
-        sprintf(buffer, "%d", num2);
-        write(fd[1], buffer, strlen(buffer) + 1);
+        write(fd[1], &num1, sizeof(int));
+        write(fd[1], &num2, sizeof(int));
 
         close(fd[1]);
 
