@@ -12,7 +12,7 @@ int main(){
 	int fp, n, num, factorial = 1;
 	char buffer[10], buffer2[10];
 	
-	fp = open("PIPE02", 0); //Abro la llave de lectura
+	fp = open("PIPE02", 0);
 	n = read(fp, buffer, sizeof(buffer));
 	num = atoi(buffer);
 	if(n > 0){

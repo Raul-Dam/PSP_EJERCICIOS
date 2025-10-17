@@ -14,6 +14,7 @@ int main(){
 	fp = open("FIFO1", 0);
 	r = read(fp,buffer,sizeof(buffer)) ; 
 	if(r > 0){
+		//Calcular Factorial
 		num = atoi(buffer);
 		for (int i = 1; i <= num; i++) {
         	factorial *= i;
