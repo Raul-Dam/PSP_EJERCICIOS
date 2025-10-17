@@ -2,27 +2,37 @@
 #include<unistd.h>
 #include<signal.h>
 #include <time.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
-void fun_signal(int signum){
+time_t tiempo(){
 
-    printf("Hola");
-    exit(0);
-}
-
-int main(){
-    signal(SIGINT,fun_signal); 
     time_t tiempo;
     char tiempo_format[100];
 
 
-    
-    // Obtenemos el tiempo actual
-    time_format(tiempo);
+    time(&tiempo);
     // Formateamos la fecha y hora en una cadena legible
-    strftime(tiempo_format, sizeof(tiempo_format), "%Y-%m-%d %H:%M:%S", localtime(tiempo));
+    strftime(tiempo_format, sizeof(tiempo_format), "%Y-%m-%d %H:%M:%S", localtime(&tiempo));
+    return tiempo_format;
+}
 
-    printf("Programa iniciado en: %s\n", tiempo_format);
-    printf("ID del proceso (PID): %d\n", getpid());
+void fun_signal(int signum){
+    pid_t pid;
+    pid=getpid();
+
+
+    printf("Fin del proceso %d: %s\n", pid, tiempo());
+    exit(0);
+}
+
+int main(){
+    pid_t pid;
+    signal(SIGINT,fun_signal); 
+    pid=getpid();
+
+
+    printf("Inicio del proceso %d: %s\n", pid, tiempo());
 
 
     pause();
