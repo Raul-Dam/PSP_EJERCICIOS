@@ -1,0 +1,15 @@
+Señal SIGINT recibida a las 09:35:08
+Señal SIGINT recibida a las 09:35:10
+Señal SIGINT recibida a las 09:35:12
+Señal SIGINT recibida a las 09:35:16
+Señal SIGINT recibida a las 09:35:16
+Señal SIGINT recibida a las 09:35:17
+Señal SIGINT recibida a las 09:36:52
+Señal SIGINT recibida a las 09:36:58
+Señal SIGINT recibida a las 09:36:58
+Señal SIGINT recibida a las 09:36:59
+Señal SIGINT recibida a las 09:36:59
+Señal SIGINT recibida a las 09:37:00
+Señal SIGINT recibida a las 09:37:00
+Señal SIGINT recibida a las 09:37:00
+Señal SIGINT recibida a las 09:37:01
