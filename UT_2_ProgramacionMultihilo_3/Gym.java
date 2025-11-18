@@ -63,11 +63,27 @@ public class Gym {
     public static void main(String[] args) {
         Gimnasio gym = new Gimnasio(5);
 
+        ArrayList<Cliente> clientes= new ArrayList<>();
+
         System.out.println("Abre el gimnasio (Aforo maximo 5 personas)");
 
         for(int i=0;i<20;i++){
-            new Cliente(i+1,gym).start();
+            Cliente n = new Cliente(i+1,gym);
+            clientes.add(n);
+            n.start();
+
         }
+
+        for (Cliente h : clientes) {
+            try {
+                h.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+    
+        System.out.println("Cierra el gimnasion (No queda nadie)");
     }
     
     
