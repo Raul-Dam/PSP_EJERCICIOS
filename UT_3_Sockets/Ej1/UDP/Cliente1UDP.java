@@ -1,4 +1,4 @@
-package PSP_EJERCICIOS.UT_3_Sockets.UDP;
+package PSP_EJERCICIOS.UT_3_Sockets.Ej1.UDP;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

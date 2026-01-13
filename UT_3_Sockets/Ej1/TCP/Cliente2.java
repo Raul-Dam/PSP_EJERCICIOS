@@ -1,4 +1,4 @@
-package PSP_EJERCICIOS.UT_3_Sockets.TCP;
+package PSP_EJERCICIOS.UT_3_Sockets.Ej1.TCP;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
