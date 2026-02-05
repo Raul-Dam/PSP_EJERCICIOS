@@ -16,18 +16,18 @@ class Supermercado {
         boolean ocupadas=true;
         do{
 
-        for(Caja c : cajas){
-            if(c.getocupada()!=true){
-                c.setocupada(true);
-               return c; 
+            for(Caja c : cajas){
+                if(c.getocupada()!=true){
+                    c.setocupada(true);
+                    return c; 
+                }
             }
-        }
 
-        try{
-            wait();
-        }catch(InterruptedException e){
-            e.printStackTrace();
-        }
+            try{
+                wait();
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
         }while(ocupadas);
         
         return new Caja(0);

@@ -11,7 +11,6 @@ public class HiloGasolineraLinked {
         Thread[] camiones = new Thread[3];
 
         for (int i = 0; i < camiones.length; i++) {
-            // Pasamos ID (i+1) para identificar al camión
             camiones[i] = new CamionLinked(deposito, i + 1);
         }
 
@@ -75,7 +74,7 @@ class CamionLinked extends Thread {
 
 class DepositoLinked {
     private LinkedList<Integer> cola;
-    private final int CAPACIDAD_MAXIMA = 1; // Capacidad 1 para forzar turno estricto
+    private final int CAPACIDAD_MAXIMA = 1;
 
     public DepositoLinked() {
         this.cola = new LinkedList<>();
@@ -91,18 +90,12 @@ class DepositoLinked {
             }
         }
 
-        // 2. Sección Crítica: Añadimos a la lista
         cola.add(litros);
         System.out.println("Refinería: Llenó el depósito con " + litros + " litros.");
-
-        // 3. Avisamos a los camiones que están esperando
         notifyAll();
     }
 
-    // Método para el Consumidor (Camión)
-    // Devuelve true si carga, false si hubo error (opcional)
     public synchronized boolean cargarCamion(int idCamion) {
-        // 1. MIENTRAS esté vacía, esperamos (wait)
         while (cola.isEmpty()) {
             try {
                 wait();
@@ -112,11 +105,10 @@ class DepositoLinked {
             }
         }
 
-        // 2. Sección Crítica: Sacamos de la lista
-        int litros = cola.removeFirst(); // o cola.poll()
+
+        int litros = cola.removeFirst(); 
         System.out.println("   🚛 Camión " + idCamion + " cargó " + litros + " litros.");
 
-        // 3. Avisamos al productor que hay sitio libre
         notifyAll();
         return true;
     }
